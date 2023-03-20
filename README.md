@@ -61,7 +61,9 @@ prioritized from highest to lowest:
 ### not fully done yet! ###################################################################################################!
 
 ### Project Goals: 
-    Clearly define the goals and objectives of your event staff and guest management system. What is the main problem you are trying to solve and how will your system address it? Who is your target audience and what benefits will your system provide for them?
+    Clearly define the goals and objectives of your event staff and guest management system. 
+    What is the main problem you are trying to solve and how will your system address it? 
+    Who is your target audience and what benefits will your system provide for them?
 
 ### Features: 
     List the core features of your system, such as event setup, management, and deletion, staff assignment, guest and staff attendance tracking, account management, and email notifications. Prioritize these features based on their importance to the overall functionality of the system.
@@ -91,7 +93,7 @@ prioritized from highest to lowest:
     Create a timeline for the development of your system, including milestones and deadlines for each stage of the project.
 
 ### Budget: 
-    Estimate the cost of developing and deploying your system, including the cost of any third-party services or resources.
+    Estim![img.png](img.png)ate the cost of developing and deploying your system, including the cost of any third-party services or resources.
 
 ### Risks and Mitigation Plan: 
     Identify potential risks and challenges that may arise during the development and deployment of your system, and describe how you plan to mitigate them.

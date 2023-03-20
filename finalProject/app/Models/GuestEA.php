@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class GuestEA extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -25,11 +25,6 @@ class User extends Authenticatable
         'profile_picture',
         'password',
     ];
-
-    public function image()
-    {
-        return $this->hasOne(Images::class);
-    }
 
     /**
      * The attributes that should be hidden for serialization.

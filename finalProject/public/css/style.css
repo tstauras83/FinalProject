@@ -1,0 +1,9 @@
+.is-invalid{
+    border-color: red;
+    color: darkred;
+    background-color: red;
+}
+
+body{
+    background-color:#484848;
+}

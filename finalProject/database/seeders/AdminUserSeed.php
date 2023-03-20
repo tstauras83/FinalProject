@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Person;
+
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -18,6 +18,8 @@ class AdminUserSeed extends Seeder
         $user = User::firstOrCreate(
             [
                 'email' => 'admin@example.com',
+                'phone_number' => '+37066403515',
+                'address' => '123 Main Street',
             ],
             [
                 'name' => 'Admin',

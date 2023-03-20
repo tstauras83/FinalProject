@@ -2,13 +2,12 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class StaffEventAssignments extends Model
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -18,18 +17,13 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'email',
-        'phone_number',
-        'address',
-        'profile_picture',
-        'password',
+        'staff_id',
+        'event_id',
+        'start_time',
+        'end_time',
+        'duration_minutes',
+        'staff_assignments'
     ];
-
-    public function image()
-    {
-        return $this->hasOne(Images::class);
-    }
 
     /**
      * The attributes that should be hidden for serialization.
@@ -37,8 +31,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
-        'remember_token',
+
     ];
 
     /**
