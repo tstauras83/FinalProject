@@ -3,18 +3,36 @@
 @section('title', 'Users')
 
 @section('content')
-    <h1>Editing {{$user->name}}</h1>
-    <span>Redagavimo forma</span>
+    <h1>Editing User: {{$user->name}}</h1>
     <form action="{{route('users.update', $user->id)}}" method="post" enctype="multipart/form-data">
         @method('PUT')
         @csrf
-        <input type="text" name="name" placeholder="Name" value="{{$user->name}}"><br>
-        <input type="text" name="email" placeholder="Email" value="{{$user->email}}"><br>
-        <input type="text" name="role_id" placeholder="Role ID" value="{{$user->role_id}}"><br>
-        <input type="text" name="phone_number" placeholder="Phone Number" value="{{$user->phone_number}}"><br>
-        <input type="text" name="address" placeholder="Address" value="{{$user->address}}"><br>
-        <input type="text" name="profile_picture" placeholder="PFP" value="{{$user->profile_picture}}"><br>
+
+        <div class="col-4">
+            <label class="form-label">Name: </label>
+            <input type="text" class="form-control"  name="name" placeholder="" value="{{$user->name}}">
+        </div>
+
+        <div class="col-4">
+            <label class="form-label">Email: </label>
+            <input type="text" class="form-control"  name="email" placeholder="" value="{{$user->email}}">
+        </div>
+
+        <div class="col-4">
+            <label class="form-label">Role ID: </label>
+            <input type="text" class="form-control"  name="role_id" placeholder=""  value="{{$user->role_id}}">
+        </div>
+
+        <div class="col-4">
+            <label class="form-label">Phone Number: </label>
+            <input type="text" class="form-control"  name="phone_number" placeholder="" value="{{$user->phone_number}}">
+        </div>
+
+        <div class="col-4">
+            <label class="form-label">Address: </label>
+            <input type="text" class="form-control" name="address" placeholder="" value="{{$user->address}}">
+        </div>
         <hr>
-        <input type="submit" class="waves-effect waves-light btn" value="Update">
+        <input type="submit" class="btn-success btn" value="Update">
     </form>
 @endsection

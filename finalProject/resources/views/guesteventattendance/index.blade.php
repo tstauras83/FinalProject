@@ -11,8 +11,8 @@
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Guest ID</th>
-                    <th>Event ID</th>
+                    <th>Guest Name</th>
+                    <th>Event Name</th>
                     <th>Attended?</th>
                     <th>Attendance Code</th>
                     <th>Actions</th>
@@ -22,8 +22,8 @@
                 @foreach($guesteventattendances as $guesteventattendance)
                     <tr>
                         <td>{{$guesteventattendance->id}}</td>
-                        <td>{{$guesteventattendance->guest_id}}</td>
-                        <td>{{$guesteventattendance->event_id}}</td>
+                        <td>{{$guesteventattendance->guest->name}}</td>
+                        <td>{{$guesteventattendance->event->name}}</td>
                         <td>{{$guesteventattendance->attended}}</td>
                         <td>{{$guesteventattendance->attendance_code}}</td>
                         <td>

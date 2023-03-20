@@ -11,8 +11,8 @@
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Staff ID</th>
-                    <th>Event ID</th>
+                    <th>Staff Name</th>
+                    <th>Event Name</th>
                     <th>Start Time</th>
                     <th>End Time</th>
                     <th>Duration Minutes</th>
@@ -24,8 +24,8 @@
                 @foreach($staffeventassignments as $staffeventassignment)
                     <tr>
                         <td>{{$staffeventassignment->id}}</td>
-                        <td>{{$staffeventassignment->staff_id}}</td>
-                        <td>{{$staffeventassignment->event_id}}</td>
+                        <td>{{$staffeventassignment->staff->name}}</td>
+                        <td>{{$staffeventassignment->event->name}}</td>
                         <td>{{$staffeventassignment->start_time}}</td>
                         <td>{{$staffeventassignment->end_time}}</td>
                         <td>{{$staffeventassignment->duration_minutes}}</td>

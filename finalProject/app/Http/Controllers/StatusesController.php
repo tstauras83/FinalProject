@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Statuses;
+use App\Models\Status;
 use Illuminate\Http\Request;
 
 class StatusesController extends Controller
@@ -13,7 +13,7 @@ class StatusesController extends Controller
     }
     public function index()
     {
-        $statuses = Statuses::all();
+        $statuses = Status::all();
 
         return view('statuses.index', compact('statuses'));
     }
@@ -37,7 +37,7 @@ class StatusesController extends Controller
                 ]);*/
 
         // Create new user
-        $status = new Statuses;
+        $status = new Status;
         $status->id = $request->id;
         $status->status = $request->status;
         $status->description = $request->description;
@@ -47,17 +47,17 @@ class StatusesController extends Controller
         return redirect()->route('statuses.index')->with('success', 'Status created successfully.');
     }
 
-    public function show(Statuses $status)
+    public function show(Status $status)
     {
         return view('statuses.show', ['status' => $status]);
     }
 
-    public function edit(Statuses $status)
+    public function edit(Status $status)
     {
         return view('statuses.edit', compact('status'));
     }
 
-    public function update(Request $request, Statuses $status)
+    public function update(Request $request, Status $status)
     {
         /*        $validatedData = $request->validate([
                     'name' => 'required|max:255',
@@ -74,7 +74,7 @@ class StatusesController extends Controller
         $status->save();
         return redirect()->route('statuses.show', $status);
     }
-    public function destroy(Statuses $status)
+    public function destroy(Status $status)
     {
         $status->delete();
         return redirect()->route('statuses.index');

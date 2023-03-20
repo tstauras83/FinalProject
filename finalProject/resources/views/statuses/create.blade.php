@@ -5,19 +5,23 @@
 @section('content')
     <div class="row">
         <div class="col s12">
-            <h1>Status Create</h1>
+            <h1>Status Creation form</h1>
             <form method="POST" action="{{ route('statuses.store') }}">
                     <input type="hidden" class="" placeholder="ID" value="">
 
+                <div class="col-4">
                     <label>Status: </label>
-                    <input type="text" class="" name="status" placeholder="" value="">
+                    <input type="text" class="form-control" name="status" placeholder="Name" value=""><br>
+                </div>
 
+                <div class="col-4">
                     <label>Description: </label>
-                    <input type="text" class="" name="description" placeholder="" value="">
+                    <input type="text" class="form-control" name="description" placeholder="Email" value=""><br>
+                </div>
 
 
                     @csrf
-                    <input type="submit" class="" value="Submit">
+                    <input type="submit" class="btn btn-success" value="Submit">
             </form>
 
 

@@ -11,6 +11,7 @@ use App\Http\Controllers\StaffController;
 use App\Http\Controllers\StaffEAController;
 use App\Http\Controllers\StatusesController;
 use App\Http\Controllers\UserController;
+use App\Models\Event;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,7 +30,20 @@ Route::get('/', IndexController::class);
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        $upcomingEvents = Event::where('start_date', '>=', now())
+            ->orderBy('start_date', 'desc')
+            ->take(3)
+            ->get();
+
+        $pastEvents = Event::where('start_date', '<=', now())
+            ->orderBy('start_date', 'desc')
+            ->take(3)
+            ->get();
+        if ($pastEvents->isEmpty()) {
+            $pastEvents = null; // Define a default value for $pastEvents
+        }
+        return view('dashboard', compact('upcomingEvents', 'pastEvents'));
+
     })->middleware(['auth', 'verified'])->name('dashboard');
 
     Route::group(['prefix' => ''], function () {
@@ -39,7 +53,6 @@ Route::middleware('auth')->group(function () {
             '/staff' => StaffController::class,
             '/users' => UserController::class,
             '/roles' => RolesController::class,
-            '/email_notifications' => EmailNotifController::class,
             '/guesteventattendances' => GuestEAController::class,
             '/staffeventassignments' => StaffEAController::class,
             '/statuses' => StatusesController::class,

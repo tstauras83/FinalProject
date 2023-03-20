@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class StaffEventAssignments extends Model
+class StaffEventAssignment extends Model
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -42,4 +42,12 @@ class StaffEventAssignments extends Model
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function staff(){
+        return $this->belongsTo(Staff::class);
+    }
+
+    public function event(){
+        return $this->belongsTo(Event::class);
+    }
 }

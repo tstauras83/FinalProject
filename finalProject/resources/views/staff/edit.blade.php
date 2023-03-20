@@ -3,47 +3,41 @@
 @section('title', 'Staff')
 
 @section('content')
-    <h1>Editing {{$staff->name}}</h1>
-    <span>Redagavimo forma</span>
+    <h1>Editing Staff: {{$staff->name}}</h1>
     <form action="{{route('staff.update', $staff->id)}}" method="post" enctype="multipart/form-data">
         @method('PUT')
         @csrf
-        <label>Name</label>
-        <input type="text" name="name" placeholder="Name" value="{{$staff->name}}"><br>
 
-        <label>Username</label>
-        <input type="text" name="username" placeholder="Username" value="{{$staff->username}}"><br>
+        <div class="col-4">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control" name="name" placeholder="Name" value="{{$staff->name}}"><br>
+        </div>
 
-        <label>Email</label>
-        <input type="text" name="email" placeholder="Email" value="{{$staff->email}}"><br>
+        <div class="col-4">
+            <label class="form-label">Username</label>
+            <input type="text" class="form-control" name="username" placeholder="Username" value="{{$staff->username}}"><br>
+        </div>
 
-        <label>Phone</label>
-        <input type="text" name="phone" placeholder="Phone" value="{{$staff->phone}}"><br>
+        <div class="col-4">
+            <label class="form-label">Email</label>
+            <input type="text" class="form-control" name="email" placeholder="Email" value="{{$staff->email}}"><br>
+        </div>
 
-        <label>Role</label>
-        <input type="text" name="role_id" placeholder="Role" value="{{$staff->role_id}}"><br>
+        <div class="col-4">
+            <label class="form-label">Phone</label>
+            <input type="text" class="form-control" name="phone" placeholder="Phone" value="{{$staff->phone}}"><br>
+        </div>
 
-        <label>Job Title</label>
-        <input type="text" name="job_title" placeholder="Job Title" value="{{$staff->job_title}}"><br>
+        <div class="col-4">
+            <label class="form-label">Role</label>
+            <input type="text" class="form-control" name="role_id" placeholder="Role" value="{{$staff->role_id}}"><br>
+        </div>
 
-        <label>Employment Date</label>
-        <input type="text" name="employment_date" placeholder="Employment Date" value="{{$staff->employment_date}}"><br>
-
-        <label>Termination Date</label>
-        <input type="text" name="termination_date" placeholder="Termination Date" value="{{$staff->termination_date}}"><br>
-
-        <label>Salary</label>
-        <input type="text" name="salary" placeholder="Salary" value="{{$staff->salary}}"><br>
-
-        <label>Department</label>
-        <input type="text" name="department" placeholder="Department" value="{{$staff->department}}"><br>
-
-        <label>Supervisor ID</label>
-        <input type="text" name="supervisor_id" placeholder="Supervisor ID" value="{{$staff->supervisor_id}}"><br>
-
-        <label>Photo</label>
-        <input type="text" name="photo_url" placeholder="Photo" value="{{$staff->photo_url }}"><br>
+        <div class="col-4">
+            <label class="form-label">Job Title</label>
+            <input type="text" class="form-control" name="job_title" placeholder="Job Title" value="{{$staff->job_title}}"><br>
+        </div>
         <hr>
-        <input type="submit" class="waves-effect waves-light btn" value="Update">
+        <input type="submit" class="btn btn-success" value="Update">
     </form>
 @endsection

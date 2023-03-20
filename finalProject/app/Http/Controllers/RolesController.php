@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Roles;
+use App\Models\Role;
 use Illuminate\Http\Request;
 
 
@@ -14,7 +14,7 @@ class RolesController extends Controller
     }
     public function index()
     {
-        $roles = Roles::all();
+        $roles = Role::all();
         return view('roles.index', compact('roles'));
     }
 
@@ -37,7 +37,7 @@ class RolesController extends Controller
                 ]);*/
 
         // Create new user
-        $role = new Roles;
+        $role = new Role;
         $role->id = $request->id;
         $role->name = $request->name;
         $role->description = $request->description;
@@ -48,17 +48,17 @@ class RolesController extends Controller
         return redirect()->route('roles.index')->with('success', 'Role created successfully.');
     }
 
-    public function show(Roles $role)
+    public function show(Role $role)
     {
         return view('roles.show', ['role' => $role]);
     }
 
-    public function edit(Roles $role)
+    public function edit(Role $role)
     {
         return view('roles.edit', compact('role'));
     }
 
-    public function update(Request $request, Roles $role)
+    public function update(Request $request, Role $role)
     {
         /*        $validatedData = $request->validate([
                     'name' => 'required|max:255',
@@ -76,7 +76,7 @@ class RolesController extends Controller
         $role->save();
         return redirect()->route('roles.show', $role);
     }
-    public function destroy(Roles $role)
+    public function destroy(Role $role)
     {
         $role->delete();
         return redirect()->route('roles.index');

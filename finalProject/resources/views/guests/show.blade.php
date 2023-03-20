@@ -3,30 +3,16 @@
 @section('title', 'Guests')
 
 @section('content')
-    <div class="row">
-        <div class="col s12 m3">
-            <div class="card">
-                <div class="card-image">
-                    IMAGE :
-                    <span class="card-title">{{ $guest->name }}</span>
-                </div>
+    <div class="row" style="background-color:#474748;">
+        <div class="col-4">
+            <div class="card" style="background-color:#474748; color:white;">
                 <div class="card-content">
-                    <td>{{$guest->name}}</td>
-                    <td>{{$guest->username}}</td>
-                    <td>{{$guest->email}}</td>
-                    <td>
-                        @if ($guest->role_id == 1)
-                            Admin
-                        @elseif ($guest->role_id == 2)
-                            PM
-                        @elseif ($guest->role_id == 3)
-                            User
-                        @endif
-                    </td>
-                    <td>{{$guest->phone}}</td>
-                    <td>{{$guest->company}}</td>
-                    <td>{{$guest->job_title}}</td>
-                    <td>{{$guest->notes}}</td>
+                    <h5>Name: {{$guest->name}}</h5>
+                    <h5>Username: {{$guest->username}}</h5>
+                    <h5>Email: {{$guest->email}}</h5>
+                    <h5>Role: {{$guest->role->name}}</h5>
+                    <h5>Phone: {{$guest->phone}}</h5>
+                    <h5>Notes: {{$guest->notes}}</h5>
                 </div>
                 <div class="card-action">
                     <x-forms.buttons.action :model="$guest" mainRoute="guests"/>

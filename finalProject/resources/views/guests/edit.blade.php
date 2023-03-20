@@ -3,36 +3,43 @@
 @section('title', 'Guests')
 
 @section('content')
-    <h1>Editing {{$guest->name}}</h1>
-    <span>Redagavimo forma</span>
-    <form action="{{route('guests.update', $guest->id)}}" method="post" enctype="multipart/form-data">
-        @method('PUT')
-        @csrf
-        <lavel>Name: </lavel>
-        <input type="text" name="name" placeholder="Name" value="{{$guest->name}}"><br>
+    <h1>Editing Guest: {{$guest->name}}</h1>
+    <div class="row">
+        <form action="{{route('guests.update', $guest->id)}}" method="post" enctype="multipart/form-data">
+            @method('PUT')
+            @csrf
+            <div class="col-4">
+                <lavel class="form-label">Name:</lavel>
+                <input type="text" class="form-control" name="name" placeholder="Name" value="{{$guest->name}}"><br>
+            </div>
 
-        <lavel>Username: </lavel>
-        <input type="text" name="username" placeholder="username" value="{{$guest->username}}"><br>
+            <div class="col-4">
+                <lavel class="form-label">Username:</lavel>
+                <input type="text" class="form-control" name="username" placeholder="username" value="{{$guest->username}}"><br>
+            </div>
 
-        <lavel>Email: </lavel>
-        <input type="email" name="email" placeholder="email" value="{{$guest->email}}"><br>
+            <div class="col-4">
+                <lavel class="form-label">Email:</lavel>
+                <input type="email" class="form-control" name="email" placeholder="email" value="{{$guest->email}}"><br>
+            </div>
 
-        <lavel>Role ID: </lavel>
-        <input type="text" name="role_id" placeholder="role_id" value="{{$guest->role_id}}"><br>
+            <div class="col-4">
+                <lavel class="form-label">Role ID:</lavel>
+                <input type="text" class="form-control" name="role_id" placeholder="role_id" value="{{$guest->role_id}}"><br>
+            </div>
 
-        <lavel>Phone: </lavel>
-        <input type="text" name="phone" placeholder="phone" value="{{$guest->phone}}"><br>
+            <div class="col-4">
+                <lavel class="form-label">Phone:</lavel>
+                <input type="text" class="form-control" name="phone" placeholder="phone" value="{{$guest->phone}}"><br>
+            </div>
 
-        <lavel>Company: </lavel>
-        <input type="text" name="company" placeholder="company" value="{{$guest->company}}"><br>
+            <div class="col-4">
+                <lavel class="form-label">Notes:</lavel>
+                <input type="text" class="form-control" name="notes" placeholder="notes" value="{{$guest->notes}}"><br>
+            </div>
 
-        <lavel>Job Title: </lavel>
-        <input type="text" name="job_title" placeholder="job_title" value="{{$guest->job_title}}"><br>
-
-        <lavel>Notes: </lavel>
-        <input type="text" name="notes" placeholder="notes" value="{{$guest->notes}}"><br>
-
-        <hr>
-        <input type="submit" class="waves-effect waves-light btn" value="Update">
-    </form>
+            <hr>
+            <input type="submit" class="btn-success btn" value="Update">
+        </form>
+    </div>
 @endsection

@@ -3,17 +3,20 @@
 @section('title', 'Roles')
 
 @section('content')
-    <h1>Editing {{$role->name}}</h1>
-    <span>Redagavimo forma</span>
+    <h1>Editing Role: {{$role->name}}</h1>
     <form action="{{route('roles.update', $role->id)}}" method="post" enctype="multipart/form-data">
         @method('PUT')
         @csrf
-        <label>Name: </label>
-        <input type="text" name="name" placeholder="Name" value="{{$role->name}}"><br>
+        <div class="col-4">
+            <label class="form-label">Name: </label>
+            <input type="text" class="form-control" name="name" placeholder="Name" value="{{$role->name}}"><br>
+        </div>
 
-        <label>Description: </label>
-        <input type="text" name="description" placeholder="Description" value="{{$role->description}}"><br>
+        <div class="col-4">
+            <label class="form-label">Description: </label>
+            <input type="text" class="form-control" name="description" placeholder="Description" value="{{$role->description}}"><br>
+        </div>
         <hr>
-        <input type="submit" class="waves-effect waves-light btn" value="Update">
+        <input type="submit" class="btn btn-success" value="Update">
     </form>
 @endsection

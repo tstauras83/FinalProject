@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Users')
+@section('title', 'Login!')
 
 @section('content')
     <x-guest-layout>

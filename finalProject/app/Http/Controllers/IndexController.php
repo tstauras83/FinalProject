@@ -6,7 +6,7 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
-use App\Models\Events;
+use App\Models\Event;
 
 class IndexController extends Controller
 {
@@ -19,7 +19,7 @@ class IndexController extends Controller
     public function __invoke(Request $request)
     {
 
-        $upcomingEvents = Events::where('start_date', '<=', now())
+        $upcomingEvents = Event::where('start_date', '>=', now())
             ->orderBy('start_date', 'desc')
             ->take(3)
             ->get();

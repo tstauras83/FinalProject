@@ -3,26 +3,22 @@
 @section('title', 'Events')
 
 @section('content')
-    <div class="row">
-        <div class="col s12 m3">
-            <div class="card">
-                <div class="card-image">
-                    IMAGE :
-                    <span class="card-title">{{ $event->name }}</span>
-                </div>
+    <div class="row" style="background-color:#474748;">
+        <div class="col-4">
+            <div class="card" style="background-color:#474748; color:white;">
                 <div class="card-content">
-                    <p>ID: {{$event->id}}</p>
-                    <p>Name: {{$event->name}}</p>
-                    <p>Description: {{$event->description}}</p>
-                    <p>Start: {{$event->start_date}}</p>
-                    <p>End: {{$event->end_date}}</p>
-                    <p>Location: {{$event->location}}</p>
-                    <p>Address: {{$event->address}}</p>
-                    <p>City: {{$event->city}}</p>
-                    <p>State: {{$event->state}}</p>
-                    <p>Country: {{$event->country}}</p>
-                    <p>Zipcode: {{$event->zipcode}}</p>
-                    <p>Created By: {{$event->created_by}}</p>
+                    <h5>ID: {{$event->id}}</h5>
+                    <h5>Name: {{$event->name}}</h5>
+                    <h5>Description: {{$event->description}}</h5>
+                    <h5>Start: {{$event->start_date}}</h5>
+                    <h5>End: {{$event->end_date}}</h5>
+                    <h5>Location: {{$event->location}}</h5>
+                    <h5>Address: {{$event->address}}</h5>
+                    <h5>City: {{$event->city}}</h5>
+                    <h5>State: {{$event->state}}</h5>
+                    <h5>Country: {{$event->country}}</h5>
+                    <h5>Zipcode: {{$event->zipcode}}</h5>
+                    <h5>Created By: {{$event->created_by}}</h5>
                 </div>
                 <div class="card-action">
                     <x-forms.buttons.action :model="$event" mainRoute="events"/>

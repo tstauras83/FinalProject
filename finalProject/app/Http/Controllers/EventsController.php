@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Events;
+use App\Models\Event;
 use Illuminate\Http\Request;
 
 class EventsController extends Controller
@@ -13,7 +13,7 @@ class EventsController extends Controller
     }
     public function index()
     {
-        $events = Events::all();
+        $events = Event::all();
 
         return view('events.index', compact('events'));
     }
@@ -37,7 +37,7 @@ class EventsController extends Controller
                 ]);*/
 
         // Create new user
-        $event = new Events;
+        $event = new Event;
         $event->id = $request->id;
         $event->name = $request->name;
         $event->description = $request->description;
@@ -56,17 +56,17 @@ class EventsController extends Controller
         return redirect()->route('events.index')->with('success', 'Event created successfully.');
     }
 
-    public function show(Events $event)
+    public function show(Event $event)
     {
         return view('events.show', ['event' => $event]);
     }
 
-    public function edit(Events $event)
+    public function edit(Event $event)
     {
         return view('events.edit', compact('event'));
     }
 
-    public function update(Request $request, Events $event)
+    public function update(Request $request, Event $event)
     {
         /*        $validatedData = $request->validate([
                     'name' => 'required|max:255',
@@ -92,7 +92,7 @@ class EventsController extends Controller
         $event->save();
         return redirect()->route('events.show', $event);
     }
-    public function destroy(Events $event)
+    public function destroy(Event $event)
     {
         $event->delete();
         return redirect()->route('events.index');

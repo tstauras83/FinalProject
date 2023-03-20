@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\StaffEventAssignments;
+use App\Models\StaffEventAssignment;
 use Illuminate\Http\Request;
 
 class StaffEAController extends Controller
@@ -15,7 +15,7 @@ class StaffEAController extends Controller
 
     public function index()
     {
-        $staffeventassignments = StaffEventAssignments::all();
+        $staffeventassignments = StaffEventAssignment::all();
 
         return view('staffeventassignments.index', compact('staffeventassignments'));
     }
@@ -39,7 +39,7 @@ class StaffEAController extends Controller
                 ]);*/
 
         // Create new user
-        $staffeventassignment = new StaffEventAssignments;
+        $staffeventassignment = new StaffEventAssignment;
         $staffeventassignment->id = $request->id;
         $staffeventassignment->staff_id = $request->staff_id;
         $staffeventassignment->event_id = $request->event_id;
@@ -53,17 +53,17 @@ class StaffEAController extends Controller
         return redirect()->route('staffeventassignments.index')->with('success', 'staffeventassignment created successfully.');
     }
 
-    public function show(StaffEventAssignments $staffeventassignment)
+    public function show(StaffEventAssignment $staffeventassignment)
     {
         return view('staffeventassignments.show', ['staffeventassignment' => $staffeventassignment]);
     }
 
-    public function edit(StaffEventAssignments $staffeventassignment)
+    public function edit(StaffEventAssignment $staffeventassignment)
     {
         return view('staffeventassignments.edit', compact('staffeventassignment'));
     }
 
-    public function update(Request $request, StaffEventAssignments $staffeventassignment)
+    public function update(Request $request, StaffEventAssignment $staffeventassignment)
     {
         /*        $validatedData = $request->validate([
                     'name' => 'required|max:255',
@@ -85,7 +85,7 @@ class StaffEAController extends Controller
         return redirect()->route('staffeventassignments.show', $staffeventassignment);
     }
 
-    public function destroy(StaffEventAssignments $staffeventassignment)
+    public function destroy(StaffEventAssignment $staffeventassignment)
     {
         $staffeventassignment->delete();
         return redirect()->route('staffeventassignments.index');

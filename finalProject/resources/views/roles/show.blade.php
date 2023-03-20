@@ -3,16 +3,12 @@
 @section('title', 'Roles')
 
 @section('content')
-    <div class="row">
-        <div class="col s12 m3">
-            <div class="card">
-                <div class="card-image">
-                    IMAGE :
-                    <span class="card-title">{{ $role->name }}</span>
-                </div>
+    <div class="row" style="background-color:#474748;">
+        <div class="col-4">
+            <div class="card" style="background-color:#474748; color:white;">
                 <div class="card-content">
-                    <p>Name: {{ $role->name }}</p>
-                    <p>Description: {{ $role->description }}</p>
+                    <h5>Name: {{ $role->name }}</h5>
+                    <h5>Description: {{ $role->description }}</h5>
                 </div>
                 <div class="card-action">
                     <x-forms.buttons.action :model="$role" mainRoute="roles"/>

@@ -16,8 +16,6 @@
                     <th>Email</th>
                     <th>Role</th>
                     <th>Phone Number</th>
-                    <th>Company</th>
-                    <th>Job Title</th>
                     <th>Notes</th>
                     <th>Actions</th>
                 </tr>
@@ -29,18 +27,8 @@
                         <td>{{$guest->name}}</td>
                         <td>{{$guest->username}}</td>
                         <td>{{$guest->email}}</td>
-                        <td>
-                            @if ($guest->role_id == 1)
-                                Admin
-                            @elseif ($guest->role_id == 2)
-                                PM
-                            @elseif ($guest->role_id == 3)
-                                User
-                            @endif
-                        </td>
+                        <td>{{$guest->role->name}}</td>
                         <td>{{$guest->phone}}</td>
-                        <td>{{$guest->company}}</td>
-                        <td>{{$guest->job_title}}</td>
                         <td>{{$guest->notes}}</td>
 
                         <td>

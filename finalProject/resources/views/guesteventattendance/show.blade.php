@@ -3,18 +3,14 @@
 @section('title', 'guesteventattendances')
 
 @section('content')
-    <div class="row">
-        <div class="col s12 m3">
-            <div class="card">
-                <div class="card-image">
-                    IMAGE :
-                    <span class="card-title">{{ $guesteventattendance->event_id }}</span>
-                </div>
+    <div class="row" style="background-color:#474748;">
+        <div class="col-4">
+            <div class="card" style="background-color:#474748; color:white;">
                 <div class="card-content">
-                    <p>Guest ID: {{ $guesteventattendance->guest_id }}</p>
-                    <p>Event ID: {{ $guesteventattendance->event_id }}</p>
-                    <p>Attended: {{ $guesteventattendance->attended }}</p>
-                    <p>Attendance Code: {{ $guesteventattendance->attendance_code }}</p>
+                    <h5>Guest ID: {{ $guesteventattendance->guest_id }}</h5>
+                    <h5>Event ID: {{ $guesteventattendance->event_id }}</h5>
+                    <h5>Attended: {{ $guesteventattendance->attended }}</h5>
+                    <h5>Attendance Code: {{ $guesteventattendance->attendance_code }}</h5>
                 </div>
                 <div class="card-action">
                     <x-forms.buttons.action :model="$guesteventattendance" mainRoute="guesteventattendances"/>

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Guests;
+use App\Models\Guest;
 use Illuminate\Http\Request;
 
 class GuestController extends Controller
@@ -15,7 +15,7 @@ class GuestController extends Controller
 
     public function index()
     {
-        $guests = Guests::all();
+        $guests = Guest::all();
 
         return view('guests.index', compact('guests'));
     }
@@ -39,15 +39,13 @@ class GuestController extends Controller
                 ]);*/
 
         // Create new user
-        $guest = new Guests;
+        $guest = new Guest;
         $guest->id = $request->id;
         $guest->name = $request->name;
         $guest->username = $request->username;
         $guest->email = $request->email;
         $guest->role_id = $request->role_id;
         $guest->phone = $request->phone;
-        $guest->company = $request->company;
-        $guest->job_title = $request->job_title;
         $guest->notes = $request->notes;
         $guest->save();
 
@@ -55,17 +53,17 @@ class GuestController extends Controller
         return redirect()->route('guests.index')->with('success', 'Guest created successfully.');
     }
 
-    public function show(Guests $guest)
+    public function show(Guest $guest)
     {
         return view('guests.show', ['guest' => $guest]);
     }
 
-    public function edit(Guests $guest)
+    public function edit(Guest $guest)
     {
         return view('guests.edit', compact('guest'));
     }
 
-    public function update(Request $request, Guests $guest)
+    public function update(Request $request, Guest $guest)
     {
         /*        $validatedData = $request->validate([
                     'name' => 'required|max:255',
@@ -82,14 +80,12 @@ class GuestController extends Controller
         $guest->email = $request->email;
         $guest->role_id = $request->role_id;
         $guest->phone = $request->phone;
-        $guest->company = $request->company;
-        $guest->job_title = $request->job_title;
         $guest->notes = $request->notes;
         $guest->save();
         return redirect()->route('guests.show', $guest);
     }
 
-    public function destroy(Guests $guest)
+    public function destroy(Guest $guest)
     {
         $guest->delete();
         return redirect()->route('guests.index');

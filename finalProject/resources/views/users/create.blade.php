@@ -5,33 +5,41 @@
 @section('content')
     <div class="row">
         <div class="col s12">
-            <h1>Users Create</h1>
+            <h1>Users Creation Form</h1>
             <form method="POST" action="{{ route('users.store') }}">
                     <input type="hidden" class="" placeholder="ID" value="">
 
-                    <label>Name: </label>
-                    <input type="text" class="" name="name" placeholder="" value="">
+                <div class="col-4">
+                    <label class="form-label">Name: </label>
+                    <input type="text" class="form-control" name="name" placeholder="" value="">
+                </div>
 
-                    <label>Email: </label>
-                    <input type="text" class="" name="email" placeholder="" value="">
+                <div class="col-4">
+                    <label class="form-label">Email: </label>
+                    <input type="text" class="form-control" name="email" placeholder="" value="">
+                </div>
 
-                    <label>Password: </label>
-                    <input type="text" class="" name="password" placeholder="" value="">
+                <div class="col-4">
+                    <label class="form-label">Password: </label>
+                    <input type="text" class="form-control"name="password" placeholder="" value="">
+                </div>
 
-                    <label>Role ID: </label>
-                    <input type="text" class="" name="role_id" placeholder="" value="">
+                <div class="col-4">
+                    <label class="form-label">Role ID: </label>
+                    <input type="text" class="form-control" name="role_id" placeholder="" value="">
+                </div>
 
-                    <label>Phone Number: </label>
-                    <input type="text" class="" name="phone_number" placeholder="" value="">
+                <div class="col-4">
+                    <label class="form-label">Phone Number: </label>
+                    <input type="text" class="form-control" name="phone_number" placeholder="" value="">
+                </div>
 
-                    <label>Address: </label>
-                    <input type="text" class="" name="address" placeholder="" value="">
-
-                    <label>PFP: </label>
-                    <input type="text" class="" name="profile_picture" placeholder="" value="">
-
+                <div class="col-4">
+                    <label class="form-label">Address: </label>
+                    <input type="text" class="form-control" name="address" placeholder="" value="">
+                </div>
                     @csrf
-                    <input type="submit" class="" value="Submit">
+                    <input type="submit" class="btn btn-success" value="Submit">
             </form>
 
 

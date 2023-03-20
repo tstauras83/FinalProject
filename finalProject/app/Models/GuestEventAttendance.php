@@ -40,4 +40,12 @@ class GuestEventAttendance extends Model
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function guest(){
+        return $this->belongsTo(Guest::class);
+    }
+
+    public function event(){
+        return $this->belongsTo(Event::class);
+    }
 }

@@ -3,23 +3,32 @@
 @section('title', 'guesteventattendances')
 
 @section('content')
-    <h1>Editing {{$guesteventattendance->event_id}}</h1>
-    <span>Redagavimo forma</span>
-    <form action="{{route('guesteventattendances.update', $guesteventattendance->id)}}" method="post" enctype="multipart/form-data">
+    <h1>Editing GuestE.A:  {{$guesteventattendance->event->name}}</h1>
+    <form action="{{route('guesteventattendances.update', $guesteventattendance->id)}}" method="post"
+          enctype="multipart/form-data">
         @method('PUT')
         @csrf
-        <label>Guest ID</label>
-        <input type="text" name="guest_id" placeholder="Guest ID" value="{{$guesteventattendance->guest_id}}"><br>
+        <div class="col-4">
+            <label>Guest ID</label>
+            <input type="text" class="form-control" name="guest_id" placeholder="Guest ID" value="{{$guesteventattendance->guest_id}}"><br>
+        </div>
 
-        <label>Event ID</label>
-        <input type="text" name="event_id" placeholder="Event ID" value="{{$guesteventattendance->event_id}}"><br>
+        <div class="col-4">
+            <label>Event ID</label>
+            <input type="text" class="form-control" name="event_id" placeholder="Event ID" value="{{$guesteventattendance->event_id}}"><br>
+        </div>
 
-        <label>Attended</label>
-        <input type="text" name="attended" placeholder="Attended" value="{{$guesteventattendance->attended}}"><br>
+        <div class="col-4">
+            <label>Attended</label>
+            <input type="text" class="form-control" name="attended" placeholder="Attended" value="{{$guesteventattendance->attended}}"><br>
+        </div>
 
-        <label>Attendance Code</label>
-        <input type="text" name="attendance_code" placeholder="Attendance Code" value="{{$guesteventattendance->attendance_code}}"><br>
+        <div class="col-4">
+            <label>Attendance Code</label>
+            <input type="text" class="form-control" name="attendance_code" placeholder="Attendance Code"
+                   value="{{$guesteventattendance->attendance_code}}"><br>
+        </div>
         <hr>
-        <input type="submit" class="waves-effect waves-light btn" value="Update">
+        <input type="submit" class="btn-success btn" value="Update">
     </form>
 @endsection
