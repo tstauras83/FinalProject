@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="/css/style.css"/>
 
 
-
 </head>
 <body>
 
@@ -40,6 +39,29 @@
 </div>
 
 
+<footer class="bg-dark text-light py-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h5>About Us</h5>
+                <p>We are a team of experienced event planners dedicated to making your events unforgettable.</p>
+            </div>
+            <div class="col-md-6">
+                <h5>Contact Us</h5>
+                <ul class="list-unstyled">
+                    <li> info@eventmanagement.com</li>
+                    <li> +37066403514</li>
+                    <li> Kaunas</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-12 text-center">
+                <p>&copy; 2023 Event Management System</p>
+            </div>
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>
