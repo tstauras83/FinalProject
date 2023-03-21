@@ -25,7 +25,17 @@ class StaffController extends Controller
 
     public function store(Request $request)
     {
+        // Validate form input
+        $request->validate([
+            'name' => 'required',
+            'username' => 'required|unique:staff',
+            'email' => 'required|unique:staff',
+            'phone' => 'required',
+            'role_id' => 'required',
+            'job_title' => 'required',
+        ]);
 
+        // Create new staff member
         $staff = new Staff;
         $staff->id = $request->id;
         $staff->name = $request->name;
@@ -34,15 +44,9 @@ class StaffController extends Controller
         $staff->phone = $request->phone;
         $staff->role_id = $request->role_id;
         $staff->job_title = $request->job_title;
-        $staff->employment_date = $request->employment_date;
-        $staff->termination_date = $request->termination_date;
-        $staff->salary = $request->salary;
-        $staff->department = $request->department;
-        $staff->supervisor_id = $request->supervisor_id;
-        $staff->photo_url = $request->photo_url;
         $staff->save();
 
-        // Redirect to user index page with success message
+        // Redirect to staff index page with success message
         return redirect()->route('staff.index')->with('success', 'Staff created successfully.');
     }
 
@@ -58,20 +62,26 @@ class StaffController extends Controller
 
     public function update(Request $request, Staff $staff)
     {
+        // Validate form input
+        $request->validate([
+            'name' => 'required',
+            'username' => 'required|unique:staff',
+            'email' => 'required|unique:staff',
+            'phone' => 'required',
+            'role_id' => 'required',
+            'job_title' => 'required',
+        ]);
 
+        // Create new staff member
         $staff->name = $request->name;
         $staff->username = $request->username;
         $staff->email = $request->email;
         $staff->phone = $request->phone;
         $staff->role_id = $request->role_id;
         $staff->job_title = $request->job_title;
-        $staff->employment_date = $request->employment_date;
-        $staff->termination_date = $request->termination_date;
-        $staff->salary = $request->salary;
-        $staff->department = $request->department;
-        $staff->supervisor_id = $request->supervisor_id;
-        $staff->photo_url = $request->photo_url;
         $staff->save();
+
+        //redirect to staff show page
         return redirect()->route('staff.show', $staff);
     }
     public function destroy(Staff $staff)

@@ -7,7 +7,7 @@
         <div class="col s12">
             <h1>Guest Attendance Creation Form</h1>
             <form method="POST" action="{{ route('guesteventattendances.store') }}">
-                    <input type="hidden" class="" placeholder="ID" value="">
+                <input type="hidden" class="" placeholder="ID" value="">
 
                 <div class="col-4">
                     <label>Guest ID</label>
@@ -30,8 +30,8 @@
                            value=""><br>
                 </div>
 
-                    @csrf
-                    <input type="submit" class="btn-success btn" value="Submit">
+                @csrf
+                <input type="submit" class="btn-success btn" value="Submit">
             </form>
 
 

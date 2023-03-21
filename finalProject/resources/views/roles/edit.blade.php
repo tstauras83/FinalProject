@@ -14,7 +14,8 @@
 
         <div class="col-4">
             <label class="form-label">Description: </label>
-            <input type="text" class="form-control" name="description" placeholder="Description" value="{{$role->description}}"><br>
+            <input type="text" class="form-control" name="description" placeholder="Description"
+                   value="{{$role->description}}"><br>
         </div>
         <hr>
         <input type="submit" class="btn btn-success" value="Update">

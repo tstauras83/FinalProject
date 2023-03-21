@@ -28,15 +28,14 @@ class UserController extends Controller
     public function store(Request $request)
     {
         // Validate form input
-/*        $request->validate([
-            'name' => 'required',
-            'email' => 'required|unique:users,email',
-            'password' => 'required',
-            'role_id' => 'required',
-            'phone_number' => 'required',
-            'address' => 'required',
-            'profile_picture' => 'required',
-        ]);*/
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email|max:255',
+            'password' => 'required|string|min:6|max:255',
+            'role_id' => 'required|integer',
+            'phone_number' => 'required|string|max:255',
+            'address' => 'required|string|max:255',
+        ]);
 
         // Create new user
         $user = new User;
@@ -47,7 +46,6 @@ class UserController extends Controller
         $user->role_id = $request->role_id;
         $user->phone_number = $request->phone_number;
         $user->address = $request->address;
-        $user->profile_picture = $request->profile_picture;
         $user->save();
 
         // Redirect to user index page with success message
@@ -66,16 +64,17 @@ class UserController extends Controller
 
     public function update(Request $request, User $user)
     {
-/*        $validatedData = $request->validate([
-            'name' => 'required|max:255',
-            'email' => 'required|email|unique:users,email,'.$user->id,
-            'password' => 'nullable|min:8|confirmed',
-            'role_id' => 'required|in:1,2,3',
-            'phone_number' => 'nullable|numeric',
-            'address' => 'nullable|max:255',
-            'profile_picture' => 'nullable|url'
-        ]);*/
+        // Validate form input
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email|max:255',
+            'password' => 'required|string|min:6|max:255',
+            'role_id' => 'required|integer',
+            'phone_number' => 'required|string|max:255',
+            'address' => 'required|string|max:255',
+        ]);
 
+        // Create new user
         $user->name = $request->name;
         $user->email = $request->email;
         $user->role_id = $request->role_id;
@@ -83,6 +82,8 @@ class UserController extends Controller
         $user->address = $request->address;
         $user->profile_picture = $request->profile_picture;
         $user->save();
+
+        //redirect to user show page.
         return redirect()->route('users.show', $user);
     }
     public function destroy(User $user)

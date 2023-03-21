@@ -35,7 +35,8 @@
 
         <div class="col-4">
             <label class="form-label">Job Title</label>
-            <input type="text" class="form-control" name="job_title" placeholder="Job Title" value="{{$staff->job_title}}"><br>
+            <input type="text" class="form-control" name="job_title" placeholder="Job Title"
+                   value="{{$staff->job_title}}"><br>
         </div>
         <hr>
         <input type="submit" class="btn btn-success" value="Update">

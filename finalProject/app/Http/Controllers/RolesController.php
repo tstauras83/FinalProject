@@ -26,17 +26,12 @@ class RolesController extends Controller
     public function store(Request $request)
     {
         // Validate form input
-        /*        $request->validate([
-                    'name' => 'required',
-                    'email' => 'required|unique:users,email',
-                    'password' => 'required',
-                    'role_id' => 'required',
-                    'phone_number' => 'required',
-                    'address' => 'required',
-                    'profile_picture' => 'required',
-                ]);*/
+        $request->validate([
+            'name' => 'required|unique:roles,name',
+            'description' => 'required',
+        ]);
 
-        // Create new user
+        // Create new role
         $role = new Role;
         $role->id = $request->id;
         $role->name = $request->name;
@@ -44,7 +39,7 @@ class RolesController extends Controller
 
         $role->save();
 
-        // Redirect to user index page with success message
+        // Redirect to roles index page with success message
         return redirect()->route('roles.index')->with('success', 'Role created successfully.');
     }
 
@@ -60,20 +55,18 @@ class RolesController extends Controller
 
     public function update(Request $request, Role $role)
     {
-        /*        $validatedData = $request->validate([
-                    'name' => 'required|max:255',
-                    'email' => 'required|email|unique:users,email,'.$user->id,
-                    'password' => 'nullable|min:8|confirmed',
-                    'role_id' => 'required|in:1,2,3',
-                    'phone_number' => 'nullable|numeric',
-                    'address' => 'nullable|max:255',
-                    'profile_picture' => 'nullable|url'
-                ]);*/
+        // Validate form input
+        $request->validate([
+            'name' => 'required|unique:roles,name',
+            'description' => 'required',
+        ]);
 
+        //update role
         $role->name = $request->name;
         $role->description = $request->description;
-
         $role->save();
+
+        //redirect to roles show page
         return redirect()->route('roles.show', $role);
     }
     public function destroy(Role $role)

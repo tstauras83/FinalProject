@@ -10,17 +10,19 @@
         @csrf
         <div class="col-4">
             <label>Staff ID</label>
-            <input type="text" class="form-control" name="staff_id" placeholder="staff_id" value="{{$staffeventassignment->staff_id}}"><br>
+            <input type="text" class="form-control" name="staff_id" placeholder="staff_id"
+                   value="{{$staffeventassignment->staff_id}}"><br>
         </div>
 
         <div class="col-4">
             <label>Event ID</label>
-            <input type="text" class="form-control" name="event_id" placeholder="event_id" value="{{$staffeventassignment->event_id}}"><br>
+            <input type="text" class="form-control" name="event_id" placeholder="event_id"
+                   value="{{$staffeventassignment->event_id}}"><br>
         </div>
 
         <div class="col-4">
             <label>Start Time</label>
-            <input type="datetime-local"  class="form-control" name="start_time" placeholder="start_time"
+            <input type="datetime-local" class="form-control" name="start_time" placeholder="start_time"
                    value="{{$staffeventassignment->start_time}}"><br>
         </div>
 

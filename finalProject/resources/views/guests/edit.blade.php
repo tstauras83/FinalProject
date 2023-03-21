@@ -15,7 +15,8 @@
 
             <div class="col-4">
                 <lavel class="form-label">Username:</lavel>
-                <input type="text" class="form-control" name="username" placeholder="username" value="{{$guest->username}}"><br>
+                <input type="text" class="form-control" name="username" placeholder="username"
+                       value="{{$guest->username}}"><br>
             </div>
 
             <div class="col-4">
@@ -25,7 +26,8 @@
 
             <div class="col-4">
                 <lavel class="form-label">Role ID:</lavel>
-                <input type="text" class="form-control" name="role_id" placeholder="role_id" value="{{$guest->role_id}}"><br>
+                <input type="text" class="form-control" name="role_id" placeholder="role_id"
+                       value="{{$guest->role_id}}"><br>
             </div>
 
             <div class="col-4">

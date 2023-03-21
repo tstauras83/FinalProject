@@ -66,7 +66,7 @@
                         <input type="text" class="form-control" name="created_by" placeholder="Created By" value=""><br>
                     </div>
                     @csrf
-                    <input type="submit" class="" value="Submit">
+                    <input type="submit" class="btn btn-success" value="Submit">
                 </form>
             </div>
         </div>

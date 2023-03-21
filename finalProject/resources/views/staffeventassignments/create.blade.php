@@ -7,7 +7,7 @@
         <div class="col s12">
             <h1>staff event assignment Creation Form</h1>
             <form method="POST" action="{{ route('staffeventassignments.store') }}">
-                    <input type="hidden" class="" placeholder="ID" value="">
+                <input type="hidden" class="" placeholder="ID" value="">
 
                 <div class="col-4">
                     <label>Staff ID</label>
@@ -21,7 +21,7 @@
 
                 <div class="col-4">
                     <label>Start Time</label>
-                    <input type="datetime-local"  class="form-control" name="start_time" placeholder="start_time"
+                    <input type="datetime-local" class="form-control" name="start_time" placeholder="start_time"
                            value=""><br>
                 </div>
 
@@ -34,8 +34,9 @@
                 <div class="col-4">
                     <label>Duration</label>
                     <input type="time" class="form-control" name="duration_minutes" placeholder="duration_minutes"
-                           value=""><br>
+                           value="">
                 </div>
+
 
                 <div class="col-4">
                     <label>Staff Assigned</label>
@@ -45,7 +46,7 @@
 
 
                 @csrf
-                    <input type="submit" class="btn btn-success" value="Submit">
+                <input type="submit" class="btn btn-success" value="Submit">
             </form>
 
 

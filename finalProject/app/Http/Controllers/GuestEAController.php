@@ -26,17 +26,14 @@ class GuestEAController extends Controller
     public function store(Request $request)
     {
         // Validate form input
-        /*        $request->validate([
-                    'name' => 'required',
-                    'email' => 'required|unique:users,email',
-                    'password' => 'required',
-                    'role_id' => 'required',
-                    'phone_number' => 'required',
-                    'address' => 'required',
-                    'profile_picture' => 'required',
-                ]);*/
+        $request->validate([
+            'guest_id' => 'required|integer',
+            'event_id' => 'required|integer',
+            'attended' => 'required',
+            'attendance_code' => 'required|string|max:255',
+        ]);
 
-        // Create new user
+        // Create new Guest Event Attendance
         $guesteventattendance = new guesteventattendance;
         $guesteventattendance->id = $request->id;
         $guesteventattendance->guest_id = $request->guest_id;
@@ -46,7 +43,7 @@ class GuestEAController extends Controller
 
         $guesteventattendance->save();
 
-        // Redirect to user index page with success message
+        // Redirect to guest event attribute index page with success message
         return redirect()->route('guesteventattendances.index')->with('success', 'guesteventattendance created successfully.');
     }
 
@@ -62,25 +59,27 @@ class GuestEAController extends Controller
 
     public function update(Request $request, guesteventattendance $guesteventattendance)
     {
-        /*        $validatedData = $request->validate([
-                    'name' => 'required|max:255',
-                    'email' => 'required|email|unique:users,email,'.$user->id,
-                    'password' => 'nullable|min:8|confirmed',
-                    'role_id' => 'required|in:1,2,3',
-                    'phone_number' => 'nullable|numeric',
-                    'address' => 'nullable|max:255',
-                    'profile_picture' => 'nullable|url'
-                ]);*/
+        // Validate form input
+        $request->validate([
+            'guest_id' => 'required|integer',
+            'event_id' => 'required|integer',
+            'attended' => 'required',
+            'attendance_code' => 'required|string|max:255',
+        ]);
 
+        //Update guest event attributes
         $guesteventattendance->guest_id = $request->guest_id;
         $guesteventattendance->event_id = $request->event_id;
         $guesteventattendance->attended = $request->attended;
         $guesteventattendance->attendance_code = $request->attendance_code;
         $guesteventattendance->save();
+
+        //redirect to guest event attributes show page
         return redirect()->route('guesteventattendances.show', $guesteventattendance);
     }
     public function destroy(guesteventattendance $guesteventattendance)
     {
+        // deletes by ID
         $guesteventattendance->delete();
         return redirect()->route('guesteventattendances.index');
     }

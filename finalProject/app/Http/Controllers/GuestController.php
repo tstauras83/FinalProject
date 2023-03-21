@@ -28,17 +28,16 @@ class GuestController extends Controller
     public function store(Request $request)
     {
         // Validate form input
-        /*        $request->validate([
-                    'name' => 'required',
-                    'email' => 'required|unique:users,email',
-                    'password' => 'required',
-                    'role_id' => 'required',
-                    'phone_number' => 'required',
-                    'address' => 'required',
-                    'profile_picture' => 'required',
-                ]);*/
+        $request->validate([
+            'name' => 'required',
+            'username' => 'required|unique:guests,username',
+            'email' => 'required|email|unique:guests,email',
+            'role_id' => 'required',
+            'phone' => 'required',
+            'notes' => 'nullable',
+        ]);
 
-        // Create new user
+        // Create new guest
         $guest = new Guest;
         $guest->id = $request->id;
         $guest->name = $request->name;
@@ -49,7 +48,7 @@ class GuestController extends Controller
         $guest->notes = $request->notes;
         $guest->save();
 
-        // Redirect to user index page with success message
+        // Redirect to guest index page with success message
         return redirect()->route('guests.index')->with('success', 'Guest created successfully.');
     }
 
@@ -65,16 +64,17 @@ class GuestController extends Controller
 
     public function update(Request $request, Guest $guest)
     {
-        /*        $validatedData = $request->validate([
-                    'name' => 'required|max:255',
-                    'email' => 'required|email|unique:users,email,'.$user->id,
-                    'password' => 'nullable|min:8|confirmed',
-                    'role_id' => 'required|in:1,2,3',
-                    'phone_number' => 'nullable|numeric',
-                    'address' => 'nullable|max:255',
-                    'profile_picture' => 'nullable|url'
-                ]);*/
+        // Validate form input
+        $request->validate([
+            'name' => 'required',
+            'username' => 'required|unique:guests,username',
+            'email' => 'required|email|unique:guests,email',
+            'role_id' => 'required',
+            'phone' => 'required',
+            'notes' => 'nullable',
+        ]);
 
+        // Update Guest
         $guest->name = $request->name;
         $guest->username = $request->username;
         $guest->email = $request->email;
@@ -82,6 +82,8 @@ class GuestController extends Controller
         $guest->phone = $request->phone;
         $guest->notes = $request->notes;
         $guest->save();
+
+        //redirect to guest show page
         return redirect()->route('guests.show', $guest);
     }
 

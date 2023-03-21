@@ -8,6 +8,7 @@
             <h1>Guest Creation Form</h1>
             <form method="POST" action="{{ route('guests.store') }}">
                 <input type="hidden" class="" placeholder="ID" value="">
+                <input type="hidden" class="form-control" name="role_id" placeholder="role_id" value="3">
 
                 <div class="col-4">
                     <lavel class="form-label">Name:</lavel>
@@ -22,11 +23,6 @@
                 <div class="col-4">
                     <lavel class="form-label">Email:</lavel>
                     <input type="email" class="form-control" name="email" placeholder="email" value=""><br>
-                </div>
-
-                <div class="col-4">
-                    <lavel class="form-label">Role ID:</lavel>
-                    <input type="text" class="form-control" name="role_id" placeholder="role_id" value=""><br>
                 </div>
 
                 <div class="col-4">

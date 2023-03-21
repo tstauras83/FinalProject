@@ -8,9 +8,11 @@ use Illuminate\Http\Request;
 class StatusesController extends Controller
 {
 
-    public function __construct(){
+    public function __construct()
+    {
 
     }
+
     public function index()
     {
         $statuses = Status::all();
@@ -25,25 +27,20 @@ class StatusesController extends Controller
 
     public function store(Request $request)
     {
-        // Validate form input
-        /*        $request->validate([
-                    'name' => 'required',
-                    'email' => 'required|unique:users,email',
-                    'password' => 'required',
-                    'role_id' => 'required',
-                    'phone_number' => 'required',
-                    'address' => 'required',
-                    'profile_picture' => 'required',
-                ]);*/
+// Validate form input
+        $request->validate([
+            'status' => 'required|unique:statuses',
+            'description' => 'required',
+        ]);
 
-        // Create new user
+        // Create new status
         $status = new Status;
         $status->id = $request->id;
         $status->status = $request->status;
         $status->description = $request->description;
         $status->save();
 
-        // Redirect to user index page with success message
+        // Redirect to status index page with success message
         return redirect()->route('statuses.index')->with('success', 'Status created successfully.');
     }
 
@@ -59,21 +56,21 @@ class StatusesController extends Controller
 
     public function update(Request $request, Status $status)
     {
-        /*        $validatedData = $request->validate([
-                    'name' => 'required|max:255',
-                    'email' => 'required|email|unique:users,email,'.$user->id,
-                    'password' => 'nullable|min:8|confirmed',
-                    'role_id' => 'required|in:1,2,3',
-                    'phone_number' => 'nullable|numeric',
-                    'address' => 'nullable|max:255',
-                    'profile_picture' => 'nullable|url'
-                ]);*/
+// Validate form input
+        $request->validate([
+            'status' => 'required|unique:statuses',
+            'description' => 'required',
+        ]);
 
+        // Create new status
         $status->status = $request->status;
         $status->description = $request->description;
         $status->save();
+
+        //redirect to statuses show page
         return redirect()->route('statuses.show', $status);
     }
+
     public function destroy(Status $status)
     {
         $status->delete();

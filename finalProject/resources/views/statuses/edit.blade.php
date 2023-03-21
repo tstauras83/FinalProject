@@ -15,7 +15,8 @@
 
         <div class="col-4">
             <label>Description: </label>
-            <input type="text" class="form-control" name="description" placeholder="Email" value="{{$status->description}}"><br>
+            <input type="text" class="form-control" name="description" placeholder="description"
+                   value="{{$status->description}}"><br>
         </div>
 
         <hr>

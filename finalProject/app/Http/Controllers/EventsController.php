@@ -26,17 +26,21 @@ class EventsController extends Controller
     public function store(Request $request)
     {
         // Validate form input
-        /*        $request->validate([
-                    'name' => 'required',
-                    'email' => 'required|unique:users,email',
-                    'password' => 'required',
-                    'role_id' => 'required',
-                    'phone_number' => 'required',
-                    'address' => 'required',
-                    'profile_picture' => 'required',
-                ]);*/
+        $request->validate([
+            'name' => 'required|max:255',
+            'description' => 'required',
+            'start_date' => 'required|date|after:today',
+            'end_date' => 'required|date|after:start_date',
+            'location' => 'required',
+            'address' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'country' => 'required',
+            'zipcode' => 'required',
+            'created_by' => 'required|max:255',
+        ]);
 
-        // Create new user
+        // Create new Event
         $event = new Event;
         $event->id = $request->id;
         $event->name = $request->name;
@@ -52,7 +56,7 @@ class EventsController extends Controller
         $event->created_by = $request->created_by;
         $event->save();
 
-        // Redirect to user index page with success message
+        // Redirect to Events index page with success message
         return redirect()->route('events.index')->with('success', 'Event created successfully.');
     }
 
@@ -68,16 +72,22 @@ class EventsController extends Controller
 
     public function update(Request $request, Event $event)
     {
-        /*        $validatedData = $request->validate([
-                    'name' => 'required|max:255',
-                    'email' => 'required|email|unique:users,email,'.$user->id,
-                    'password' => 'nullable|min:8|confirmed',
-                    'role_id' => 'required|in:1,2,3',
-                    'phone_number' => 'nullable|numeric',
-                    'address' => 'nullable|max:255',
-                    'profile_picture' => 'nullable|url'
-                ]);*/
+        // Validate form input
+        $request->validate([
+            'name' => 'required|max:255',
+            'description' => 'required',
+            'start_date' => 'required|date|after:today',
+            'end_date' => 'required|date|after:start_date',
+            'location' => 'required',
+            'address' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'country' => 'required',
+            'zipcode' => 'required',
+            'created_by' => 'required|max:255',
+        ]);
 
+        // Update Event
         $event->name = $request->name;
         $event->description = $request->description;
         $event->start_date = $request->start_date;
@@ -90,6 +100,8 @@ class EventsController extends Controller
         $event->zipcode = $request->zipcode;
         $event->created_by = $request->created_by;
         $event->save();
+
+        // Redirect to Events show page.
         return redirect()->route('events.show', $event);
     }
     public function destroy(Event $event)

@@ -28,24 +28,23 @@ class StaffEAController extends Controller
     public function store(Request $request)
     {
         // Validate form input
-        /*        $request->validate([
-                    'name' => 'required',
-                    'email' => 'required|unique:users,email',
-                    'password' => 'required',
-                    'role_id' => 'required',
-                    'phone_number' => 'required',
-                    'address' => 'required',
-                    'profile_picture' => 'required',
-                ]);*/
+        $request->validate([
+            'staff_id' => 'required',
+            'event_id' => 'required',
+            'start_time' => 'required|date',
+            'end_time' => 'required|date|after:start_time',
+            'duration_minutes' => 'max:255',
+            'staff_assignment' => 'required',
+        ]);
 
-        // Create new user
+        // Create new staff event assignment
         $staffeventassignment = new StaffEventAssignment;
         $staffeventassignment->id = $request->id;
         $staffeventassignment->staff_id = $request->staff_id;
         $staffeventassignment->event_id = $request->event_id;
         $staffeventassignment->start_time = $request->start_time;
         $staffeventassignment->end_time = $request->end_time;
-        $staffeventassignment->duration_minutes = $request->duration_minutes;
+        $staffeventassignment->duration_minutes = $request->integer;
         $staffeventassignment->staff_assignment = $request->staff_assignment;
         $staffeventassignment->save();
 
@@ -65,16 +64,17 @@ class StaffEAController extends Controller
 
     public function update(Request $request, StaffEventAssignment $staffeventassignment)
     {
-        /*        $validatedData = $request->validate([
-                    'name' => 'required|max:255',
-                    'email' => 'required|email|unique:users,email,'.$user->id,
-                    'password' => 'nullable|min:8|confirmed',
-                    'role_id' => 'required|in:1,2,3',
-                    'phone_number' => 'nullable|numeric',
-                    'address' => 'nullable|max:255',
-                    'profile_picture' => 'nullable|url'
-                ]);*/
+        // Validate form input
+        $request->validate([
+            'staff_id' => 'required',
+            'event_id' => 'required',
+            'start_time' => 'required|date',
+            'end_time' => 'required|date|after:start_time',
+            'duration_minutes' => 'max:255',
+            'staff_assignment' => 'required',
+        ]);
 
+        // Update staff event assignment
         $staffeventassignment->staff_id = $request->staff_id;
         $staffeventassignment->event_id = $request->event_id;
         $staffeventassignment->start_time = $request->start_time;
@@ -82,6 +82,8 @@ class StaffEAController extends Controller
         $staffeventassignment->duration_minutes = $request->duration_minutes;
         $staffeventassignment->staff_assignment = $request->staff_assignment;
         $staffeventassignment->save();
+
+        //redirect to staff event assignment show page
         return redirect()->route('staffeventassignments.show', $staffeventassignment);
     }
 

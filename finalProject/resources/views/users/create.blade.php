@@ -7,7 +7,7 @@
         <div class="col s12">
             <h1>Users Creation Form</h1>
             <form method="POST" action="{{ route('users.store') }}">
-                    <input type="hidden" class="" placeholder="ID" value="">
+                <input type="hidden" class="" placeholder="ID" value="">
 
                 <div class="col-4">
                     <label class="form-label">Name: </label>
@@ -21,7 +21,7 @@
 
                 <div class="col-4">
                     <label class="form-label">Password: </label>
-                    <input type="text" class="form-control"name="password" placeholder="" value="">
+                    <input type="password" class="form-control" name="password" placeholder="" value="">
                 </div>
 
                 <div class="col-4">
@@ -38,8 +38,8 @@
                     <label class="form-label">Address: </label>
                     <input type="text" class="form-control" name="address" placeholder="" value="">
                 </div>
-                    @csrf
-                    <input type="submit" class="btn btn-success" value="Submit">
+                @csrf
+                <input type="submit" class="btn btn-success" value="Submit">
             </form>
 
 

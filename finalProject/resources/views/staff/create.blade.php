@@ -7,7 +7,7 @@
         <div class="col s12">
             <h1>Staff Creation Form</h1>
             <form method="POST" action="{{ route('staff.store') }}">
-                    <input type="hidden" class="" placeholder="ID" value="">
+                <input type="hidden" class="" placeholder="ID" value="">
 
                 <div class="col-4">
                     <label class="form-label">Name</label>
@@ -40,8 +40,8 @@
                 </div>
 
 
-                    @csrf
-                    <input type="submit" class="btn btn-success" value="Submit">
+                @csrf
+                <input type="submit" class="btn btn-success" value="Submit">
             </form>
 
 
