@@ -7,7 +7,7 @@
         <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-md-6">
-                    <div class="card">
+                    <div class="card" style="color:black">
                         <div class="card-header">{{ __('Log in') }}</div>
 
                         <div class="card-body">

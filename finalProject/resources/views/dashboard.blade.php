@@ -9,9 +9,9 @@
 
             <!-- Main content -->
             <div class="col-12">
-                <div class="card">
+                <div class="card" style="color:black">
                     <div class="card-header">{{ __("You're logged in!") }}</div>
-                    <div class="card-body">
+                    <div class="card-body" >
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <button type="submit" class="btn btn-primary">Logout</button>
@@ -19,7 +19,7 @@
                     </div>
                 </div>
 
-                <div class="card mt-3">
+                <div class="card mt-3" style="color:black">
                     <div class="card-header">Upcoming Events!!</div>
                     <div class="card-body">
                         @foreach($upcomingEvents as $index => $event)
@@ -50,7 +50,7 @@
                 </div>
             </div>
 
-            <div class="col-md-12">
+            <div class="col-md-12" style="color:black">
                 <div class="card mt-3">
                     <div class="card-header">Past Events</div>
                     <div class="card-body">
